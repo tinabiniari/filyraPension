@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="head">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Pension Filyra Nafplio, great accommodation in Nauplio old town, Argolida - economical prices" />
+        <meta name="keywords" content="filyra,pension nafplio,nafplion,hotel nafplion,nafplio accommodation,argolida hotels,hotelsnafplio,nafplion hotels,rooms nauplio,napflio cheap rooms,economical nafplio,peloponnese,peloponese,nafplia,nauplie,anapli,nauplion,luxury,free html5, free template, free bootstrap, html5, css3, mobile first, responsive"
+        />
+        <meta name="author" content="FREEHTML5.CO" />
+        <meta name="url" content='http://www.pensionfilyra.gr/'>
+        <meta http-equiv="Cache-Control" content="no-store" />
+
+        <meta property="og:url" content="http://www.pensionfilyra.gr/gr/">
+        <meta property="og:title" content="Pension Filyra | Nafplio, Greece" />
+        <meta property="og:image" content="http://www.pensionfilyra.gr/images/og.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://www.pensionfilyra.gr/index.html">
+        <meta property="og:site_name" content="" />
+        <meta property="og:description" content="" />
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:image" content="http://www.pensionfilyra.gr/images/og.png" />
+        <meta name="twitter:url" content="http://www.pensionfilyra.gr/index.html" />
+        <meta name="twitter:card" content="" />
+
+        <link rel="shortcut icon" href="../images/logo2 2.ico">
+        <link rel="apple-touch-icon" href="../images/logo2 2.ico" />
+        <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic,700italic|Merriweather:300,400italic,300italic,400,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../css/animate.css">
+        <link rel="stylesheet" href="../css/icomoon.css">
+        <link rel="stylesheet" href="../css/simple-line-icons.css">
+        <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="../css/flexslider.css">
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/menu.css">
+        <link href="../css/lightbox.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+    </head>
+</div>
+<div th:include="body">
+
+    <body>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+                <ion-icon name="close-outline"></ion-icon>
+            </a>
+            <div class="overlay-content">
+                <a href="/index" class="" th:text="#{main-page}"></a>
+                <a href="rooms_gr.html" th:text="#{accomodation-page}"></a>
+                <a href="nafplio_gr.html" th:text="#{nafplio-page}"></a>
+                <a href="gallery_gr.html" th:text="#{photos-page}"></a>
+                <a href="contact_gr.html" th:text="#{contact-page}"></a>
+                <a href="#" th:text=#{covid-page}></a>
+            </div>
+        </div>
+        <nav id="regular-nav" class="navbar navbar-expand-md topnav position-fixed">
+            <div class="w-100 order-1 order-md-0 dual-collapse2">
+                <div class="logo pl-5">
+                    <ul class="d-inline-flex list-unstyled pl-0">
+                        <li>
+                            <a href="index.html" class="logo1" id="logo1"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mx-auto order-0 navbar-collapse collapse">
+                <ul class="d-inline-flex list-unstyled pl-0 mb-0 mt-3">
+                    <!-- <li>
+                            <a href="index.html" class="logo1" id="logo1"></a>
+                        </li> -->
+                    <li>
+                        <a href="/index" class="" th:text="#{main-page}"></a>
+                    </li>
+                    <li>
+                        <a href="rooms_gr.html" th:text="#{accomodation-page}"></a>
+                    </li>
+                    <li>
+                        <a href="nafplio_gr.html" th:text="#{nafplio-page}"></a>
+                    </li>
+                    <li>
+                        <a href="gallery_gr.html" th:text="#{photos-page}"></a>
+                    </li>
+                    <li>
+                        <a href="contact_gr.html" th:text="#{contact-page}"></a>
+                    </li>
+                    <li>
+                        <a href="#" th:text=#{language-page}></a>
+                    </li>
+                    <li>
+                        <a href="#" th:text=#{covid-page}></a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <li><a href="https://filyranafplion.reserve-online.net/" class="button" th:text="#{book-now-page}"><i class="icon-calendar"></i> </a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="mobile-nav" class="navbar-expand-md topnav position-fixed">
+            <div class="pl-5 w-50">
+                <ul class="d-inline-flex list-unstyled pl-0">
+                    <li>
+                        <a href="index.html" class="logo1" id="logo1"></a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="pr-5 w-50 text-right">
+                <ul class="d-inline-flex list-unstyled pl-0 my-3">
+                    <li>
+                        <a href="#" onclick="openNav()">
+                            <ion-icon name="menu-outline" class="burger-menu"></ion-icon>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <script>
+            function openNav() {
+                document.getElementById("myNav").style.width = "100%";
+                document.getElementById("mobile-nav").style.display = "none";
+            }
+
+            function closeNav() {
+                document.getElementById("myNav").style.width = "0%";
+                document.getElementById("mobile-nav").style.display = "flex";
+            }
+        </script>
+    </body>
+</div>
+
+</html>

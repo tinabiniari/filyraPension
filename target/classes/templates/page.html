@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="el" class="no-js">-->
+<!-- <div th:include="header :: head"></div> -->
+
+<head>
+
+    <title>Πανσιόν Φιλύρα | Ξενώνας στο κέντρο του Ναυπλίου | Ξενοδοχείο Ναύπλιο | Πανσιόν Ναύπλιο | Πολυτελής Διαμονή | Οικονομικές Τιμές
+    </title>
+    <link rel="stylesheet" media="screen" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://unpkg.com/jquery-ui@1.12.1/ui/i18n/datepicker-{lang}.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+    <!-- example 2 - using auto margins -->
+    <nav class="navbar navbar-expand-md topnav">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <div class="logo pl-5">
+                <ul class="d-inline-flex list-unstyled pl-0">
+                    <li>
+                        <a href="index.html" class="logo1" id="logo1"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mx-auto order-0">
+            <ul class="d-inline-flex list-unstyled pl-0">
+                <!-- <li>
+                            <a href="index.html" class="logo1" id="logo1"></a>
+                        </li> -->
+                <li><a href="javascript:void(0)" class="closebtn" id="closebtn" onclick="myFunction()">&times; </a></li>
+                <li>
+                    <a href="/index" class="" th:text="#{main-page}"></a>
+                </li>
+                <li>
+                    <a href="rooms_gr.html" th:text="#{accomodation-page}"></a>
+                </li>
+                <li>
+                    <a href="nafplio_gr.html" th:text="#{nafplio-page}"></a>
+                </li>
+                <li>
+                    <a href="gallery_gr.html" th:text="#{photos-page}"></a>
+                </li>
+                <li>
+                    <a href="contact_gr.html" th:text="#{contact-page}"></a>
+                </li>
+
+                <!-- <li>
+                            <a href="index.html"><img class="language" src="../images/flag-400.png" style="display:none;"></a>
+                        </li>
+                        <li>
+                            <a href="index.html"><img class="language" src="../images/icons/greece.svg"></a>
+                        </li> -->
+                <!-- <li>
+                            <a href="index1_en.html"><img class="language" src="../images/icons/uk.svg"></a>
+                        </li> -->
+                <li>
+                    <a href="#.html">ENG </a>
+                    <!-- <a href="index1_en.html"><img class="language" src="../images/engflag.jpeg" style="display:none;"></a>
+                            <a href="javascript:void(0);" class="icon" id="icon" onclick="myFunction()" th:text="'&#9776; ' + #{menu-mobile-title}"></a> -->
+                </li>
+                <li>
+                    <a href="gallery_gr.html">COVID-19</a>
+                </li>
+
+            </ul>
+            <!-- <a class="navbar-brand mx-auto" href="#">Navbar 2</a> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li><a href="https://filyranafplion.reserve-online.net/" th:text="#{book-now-page}"><i class="icon-calendar"></i> </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div th:include="footer::body"></div>
+
+
+</body>

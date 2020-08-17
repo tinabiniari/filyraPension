@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" style="overflow:auto;">
+<!--<html lang="el" class="no-js">-->
+<div th:include="header :: head"></div>
+
+<head>
+
+    <title>Πανσιόν Φιλύρα | Ξενώνας στο κέντρο του Ναυπλίου | Ξενοδοχείο Ναύπλιο | Πανσιόν Ναύπλιο | Πολυτελής Διαμονή | Οικονομικές Τιμές
+    </title>
+    <link rel="stylesheet" media="screen" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" />
+    <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://unpkg.com/jquery-ui@1.12.1/ui/i18n/datepicker-{lang}.js"></script>
+    <style type="text/css">
+        @media only screen and (max-width: 748px) {
+            .language {
+                display: block !important;
+            }
+        }
+        
+        @media only screen and (max-width: 442px) {
+            .reserve-btn {
+                font-size: 10px;
+            }
+        }
+        
+        .container label {
+            margin-top: 10px;
+        }
+        
+        .container label:first-of-type {
+            margin-top: 0;
+        }
+        
+        .container button {
+            margin-top: 20px;
+        }
+        
+        .well {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        //$.noConflict();
+        jQuery(document).ready(function($) {
+            'use strict';
+
+            function getField(id) {
+                var el = $('#' + id + '-picker');
+                return el.length ? el : null;
+            }
+
+            function pickerSetup(id, date) {
+                var el = getField(id);
+                if (el !== null) {
+                    var checkin = id === 'checkin';
+                    el.datepicker({
+                        altField: el.get(0).form[id],
+                        altFormat: 'yy-mm-dd',
+                        dateFormat: 'd M yy',
+                        onSelect: function() {
+                            if (checkin && getField('checkout') !== null) {
+                                var constraint = new Date(el.datepicker('getDate'));
+                                constraint.setDate(constraint.getDate() + 1);
+                                getField('checkout').datepicker('option', 'minDate', constraint);
+                            }
+                        },
+                        numberOfMonths: 1,
+                        mandatory: true,
+                        firstDay: 1,
+                        minDate: checkin ? 0 : 1,
+                        maxDate: '+2y',
+                    });
+                    el.datepicker('setDate', date);
+                }
+            }
+
+            pickerSetup('checkin', '+0');
+            pickerSetup('checkout', '+1');
+        });
+    </script>
+</head>
+
+<body style="overflow-x: hidden;">
+    <div th:include="header :: body"></div>
+
+    <div id="page">
+        <div id="fh5co-container">
+
+
+            <div id="fh5co-home" class="js-fullheight" data-section="home">
+
+                <div class="flexslider">
+                    <div class="slide-down">
+                        <a href="#fh5co-about">
+                            <ion-icon name="chevron-down-outline"></ion-icon>
+                        </a>
+                    </div>
+                    <div class="fh5co-overlay">
+                    </div>
+
+                    <div class="fh5co-text">
+
+                        <div class="container">
+
+                            <div class="row d-block text-center">
+
+                                <h1 class="to-animate mytitle">Pension Filyra
+                                </h1>
+                                <p class="mysubtitle to-animate" th:text="#{main-description}"></p>
+
+                                <!-- 
+                                <div class="p-5"><a href="#fh5co-about"><i class="icon-arrow-down-circle"
+                                            style="font-size:30px;color:white;"></i></a></div> -->
+                            </div>
+
+                        </div>
+                    </div>
+                    <ul class="slides">
+                        <li style="background-image: url(../images/nafplio/nauplio57.jpg);" data-stellar-background-ratio="0.5"></li>
+                        <li style="background-image: url(../images/room4/4.1.jpg);" data-stellar-background-ratio="0.5">
+                        </li>
+                        <li style="background-image: url(../images/exterior/window.jpg);" data-stellar-background-ratio="0.5"></li>
+                        <li style="background-image: url(../images/room5/5.4.jpg);" data-stellar-background-ratio="0.5">
+                        </li>
+                        <li style="background-image: url(../images/nafplio/IMG_0166.jpg);" data-stellar-background-ratio="0.5"></li>
+                        <li style="background-image: url(../images/room3/IMG_0309.jpg);" data-stellar-background-ratio="0.5"></li>
+                        <li style="background-image: url(../images/nafplio/nafplio-greece.jpg);" data-stellar-background-ratio="0.5"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="booking-form container text-center position-relative">
+                <form class="" action="https://filyranafplion.reserve-online.net/" method="post">
+                    <input type="hidden" name="checkin" />
+                    <input type="hidden" name="checkout" />
+
+                    <div class="form-div">
+                        <div class="availability-form-box">
+                            <div>
+                                <label for="checkin-picker">Check in</label>
+                            </div>
+                            <div>
+                                <input type="text" id="checkin-picker" placeholder="dd mmm yyyy" />
+                            </div>
+                        </div>
+                        <div class="availability-form-box">
+                            <div>
+                                <label for="checkout-picker">Check out</label>
+                            </div>
+                            <div>
+                                <input type="text" id="checkout-picker" placeholder="dd mmm yyyy" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-div">
+                        <div class="availability-form-box">
+                            <div>
+                                <label for="wh-adults">Adults</label>
+                            </div>
+                            <div>
+                                <select id="wh-adults" name="adults">
+                            <option value="1">1 adult</option>
+                            <option value="2" selected>2 adults</option>
+                            <option value="3">3 adults</option>
+                            <option value="4">4 adults</option>
+                            <option value="5">5 adults</option>
+                            <option value="6">6 adults</option>
+                            <option value="7">7 adults</option>
+                        </select>
+                            </div>
+                        </div>
+                        <div class="availability-form-box">
+                            <div>
+                                <label for="wh-children">Children</label>
+                            </div>
+                            <div>
+                                <select id="wh-children" name="children">
+                            <option value="0">no children</option>
+                            <option value="1">1 child</option>
+                            <option value="2">2 children</option>
+                            <option value="3">3 children</option>
+                            <option value="4">4 children</option>
+                            <option value="5">5 children</option>
+                            <option value="6">6 children</option>
+                        </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-div">
+                        <div class="availability-form-box">
+                            <div>
+                                <label for="wh-rooms">Rooms</label>
+                            </div>
+                            <div>
+                                <select id="wh-rooms" name="rooms">
+                            <option value="1">1 room</option>
+                            <option value="2">2 rooms</option>
+                            <option value="3">3 rooms</option>
+                            <option value="4">4 rooms</option>
+                            <option value="5">5 rooms</option>
+                        </select>
+                            </div>
+                        </div>
+                        <div class="availability-form-box availability-form-button">
+                            <div>
+                                <button type="submit">Check Availability</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div id="fh5co-about" data-section="about" class="left-img">
+                <img src="../images/exterior/11154899_774492892666695_1628397271634958769_o.jpg" alt="" id="mobile-img">
+                <div class="container to-animate">
+                    <div class="row justify-content-end to-animate">
+                        <div class="col-lg-8 col-md-8 col-sm-10 fh5co-text to-animate">
+                            <div class="about-us to-animate">
+                                <h2 th:text="#{welcomeMessage}"></h2>
+                                <h1>Λίγα λόγια για εμάς..</h1>
+                                <p class="to-animate">
+                                    <th:field th:text="#{about-us}"></th:field>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="fh5co-featured" data-section="features">
+        <div class="">
+            <div>
+                <div class="sm-container">
+
+                    <div class="row upper-row">
+                        <div class="col text-right pr-0 img-col">
+                            <div class="upper-img">
+                                <img src="/images/room5/5.1.jpg" alt="" class="">
+                            </div>
+                        </div>
+
+                        <div class="col text-left text-col">
+                            <div class="to-animate">
+                                <h2 class="h2-header" th:text=#{accomodation-title}></h2>
+                                <h2 class="h2-header mobile-header" th:text=#{accomodation-mobile-title}></h2>
+                                <h2 class="h2-header mobile-header" th:text=#{accomodation-subtitle}></h2>
+                                <h1 class="subheader" th:text=#{rooms-header}></h1>
+                                <p class="to-animate text mb-5" th:text=#{room-description}>
+
+                                </p>
+                                <div>
+                                    <div>
+                                        <a href="#" class="button" th:text=#{check-more}></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row bottom-row">
+                        <div class="col-md-4 text-right text-col">
+                            <div class="to-animate bottom-text">
+                                <h2 class="subheader" th:text=#{photos-description}></h2>
+
+                                </p>
+                                <div>
+                                    <div>
+                                        <a href="#" class="button" th:text=#{check-more}></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-12 text-left img-col">
+                            <div class="bottom-img">
+                                <img src="/images/room4/4.1.jpg" alt="" class="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="fh5co-events" class="location" data-section="events" style="background-image: url(../images/nafplio/nafplioo.jpg);">
+
+        <div class="fh5co-overlay" style="z-index:0;">
+        </div>
+
+        <div class="">
+            <div class="row text-center fh5co-heading row-padded">
+
+                <div class="col-md-8 col-md-offset-2 to-animate">
+                    <h2 class="h2-header" th:text=#{location-title}></h2>
+                    <p class="sub-heading" th:text=#{nafplio-description}></p>
+                    <div>
+                        <a href="#" class="outline-btn" th:text=#{check-more}></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div th:include="footer::body"></div>
+    </div>
+</body>
+
+</html>
